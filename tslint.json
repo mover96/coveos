@@ -11,7 +11,8 @@
     "quotemark": [false],
     "no-bitwise": false,
     "jsx-no-lambda": false,
-    "jsx-no-bind": false
+    "jsx-no-bind": false,
+    "no-reference": false
   },
   "rulesDirectory": []
 }
