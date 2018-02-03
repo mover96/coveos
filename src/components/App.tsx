@@ -1,8 +1,9 @@
 import * as React from 'react'
-import * as MediaQuery from 'react-responsive'
+
+// import { FlowChartComponent } from './FlowChartComponent'
 
 export class App extends React.Component<null, null> {
   public render() {
-    return <div>My boi</div>
+    return <div>hello</div>
   }
 }
