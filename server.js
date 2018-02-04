@@ -1,3 +1,4 @@
+const http = require('http')
 const express = require('express')
 const path = require('path')
 const favicon = require('serve-favicon')
@@ -18,6 +19,8 @@ if (dev == true) {
 }
 
 const app = express()
+const server = http.createServer(app)
+const io = require('socket.io')(server)
 
 app.set('port', process.env.PORT || 8000)
 
@@ -57,6 +60,15 @@ app.get('/appStore', (req, res) => {
   res.sendFile(path.join(__dirname, '/src/apps/appStore/index.html'))
 })
 
-app.listen(app.get('port'), () => {
+io.on('connection', client => {
+  client.on('subscribeToTimer', interval => {
+    console.log('client is subscribing to timer with interval ', interval)
+    setInterval(() => {
+      client.emit('timer', new Date())
+    }, interval)
+  })
+})
+
+server.listen(app.get('port'), () => {
   console.log('Server started on port ', app.get('port'))
 })
