@@ -60,12 +60,16 @@ app.get('/appStore', (req, res) => {
   res.sendFile(path.join(__dirname, '/src/apps/appStore/index.html'))
 })
 
-io.on('connection', client => {
-  client.on('subscribeToTimer', interval => {
-    console.log('client is subscribing to timer with interval ', interval)
-    setInterval(() => {
-      client.emit('timer', new Date())
-    }, interval)
+io.on('connection', socket => {
+  console.log('User connected')
+
+  socket.on('killMe', id => {
+    console.log('req to kill frame')
+    io.to(id).emit('killFrame', id)
+  })
+
+  socket.on('disconnect', () => {
+    console.log('user disconnected')
   })
 })
 
