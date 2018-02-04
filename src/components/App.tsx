@@ -1,12 +1,9 @@
-/// <reference path="../../react-iframe.d.ts" />
-
 import * as React from 'react'
 
-// import { FlowChartComponent } from './FlowChartComponent'
-import Iframe from 'react-iframe'
+export interface AppProps {
+  name: string
+}
 
-export class App extends React.Component<null, null> {
-  public render() {
-    return <div>hello</div>
-  }
+export const App: React.SFC<AppProps> = props => {
+  return <div>{props.name}</div>
 }

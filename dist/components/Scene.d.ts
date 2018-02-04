@@ -1,3 +1,3 @@
 /// <reference types="react" />
 import * as React from 'react';
-export declare const ResponsiveShell: React.SFC<null>;
+export declare const Scene: React.SFC<null>;

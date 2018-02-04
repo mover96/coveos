@@ -1,5 +1,6 @@
 /// <reference types="react" />
 import * as React from 'react';
-export declare class App extends React.Component<null, null> {
-    render(): JSX.Element;
+export interface AppProps {
+    name: string;
 }
+export declare const App: React.SFC<AppProps>;

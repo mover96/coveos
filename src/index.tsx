@@ -3,13 +3,13 @@ import { render } from 'react-dom'
 import { Provider } from 'react-redux'
 import { createStore } from 'redux'
 import { cove } from './reducers/cove'
-import { App } from './components/App'
+import { Main } from './components/Main'
 
 const store = createStore(cove)
 
 render(
   <Provider store={store}>
-    <App />
+    <Main />
   </Provider>,
   document.getElementById('root')
 )
