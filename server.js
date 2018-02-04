@@ -10,6 +10,8 @@ const bufReplace = require('buffer-replace')
 
 const dev = true
 
+const tempDatabase = {}
+
 let callbackUrlSet = 'http://leftanglebracket.com/oauthcallback'
 if (dev == true) {
   callbackUrlSet = 'http://localhost:8000/oauthcallback'
@@ -49,6 +51,10 @@ app.use(
 
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'index.html'))
+})
+
+app.get('/appStore', (req, res) => {
+  res.sendFile(path.join(__dirname, '/src/apps/appStore/index.html'))
 })
 
 app.listen(app.get('port'), () => {

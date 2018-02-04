@@ -2,9 +2,12 @@ var path = require('path')
 var webpack = require('webpack')
 
 module.exports = {
-  entry: ['webpack-hot-middleware/client', './src/index.tsx'],
+  entry: {
+    main: ['webpack-hot-middleware/client', './src/index.tsx'],
+    appStore: ['webpack-hot-middleware/client', './src/apps/appStore/index.tsx']
+  },
   output: {
-    filename: 'bundle.js',
+    filename: '[name].bundle.js',
     path: __dirname + '/public'
   },
 
